@@ -1,0 +1,19 @@
+# Refer to https://github.com/golang/dep/blob/master/docs/Gopkg.toml.md
+# for detailed Gopkg.toml documentation.
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/lib/pq"
+
+[[constraint]]
+  name = "github.com/pinub/mux"
+  version = "1.1.0"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/getsentry/raven-go"
+
+[metadata.heroku]
+  root-package = "github.com/berlinracingteam/brt"
+  go-version = "go1.9.2"
+  install = ["./cmd/..."]
