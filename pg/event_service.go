@@ -9,10 +9,13 @@ import (
 // Ensure EventService implements brt.EventService
 var _ brt.EventService = &EventService{}
 
+// EventService represents a service for everything related to events and
+// their database retrieval
 type EventService struct {
 	Client *Client
 }
 
+// Events returns all events from the given year onwards.
 func (s *EventService) Events(from int) ([]brt.Event, error) {
 	query := `
         SELECT

@@ -11,12 +11,15 @@ const driver = "postgres"
 // Ensure Client implements brt.Client
 var _ brt.Client = &Client{}
 
+// Client contains the links to the database and the current implemented
+// services.
 type Client struct {
 	*sql.DB
 
 	eventService EventService
 }
 
+// New creates and returns a new Client struct.
 func New(dataSource string) (*Client, error) {
 	db, err := sql.Open(driver, dataSource)
 	if err != nil {
@@ -33,6 +36,7 @@ func New(dataSource string) (*Client, error) {
 	return c, nil
 }
 
+// EventService returns the linked service.
 func (c *Client) EventService() brt.EventService {
 	return &c.eventService
 }

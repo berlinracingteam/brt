@@ -5,10 +5,13 @@ import (
 	"time"
 )
 
+// EventService is responsible for all event related database hits. Currently
+// only the retrieval of events for the calendar is supported.
 type EventService interface {
 	Events(int) ([]Event, error)
 }
 
+// Client has all connections to the services.
 type Client interface {
 	EventService() EventService
 }
@@ -27,6 +30,7 @@ type Person struct {
 	Email string
 }
 
+// CN defines an "attendee" within a calendar component.
 func (p *Person) CN() string {
 	return fmt.Sprintf("%s:mailto:%s", p.Name, p.Email)
 }
