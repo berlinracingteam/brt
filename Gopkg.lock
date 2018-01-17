@@ -22,8 +22,8 @@
 [[projects]]
   name = "github.com/pinub/mux"
   packages = ["."]
-  revision = "d4bbd04bc4b27d6f3bf85c83f4d1aadb65f39f33"
-  version = "v1.1.0"
+  revision = "5ce3abb9652cdfe9eb5ac99e03d0cdd1ebf21c83"
+  version = "v2.0.1"
 
 [[projects]]
   name = "github.com/pkg/errors"
@@ -34,6 +34,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "111fd0422b052ef3791b4cfb4f449211d06e4490eae55721e0156a6ff00e5b51"
+  inputs-digest = "bdf0f77ca6a39dc0e4c21d611ce872392b15c59aefec8f59cf1a875081e82b54"
   solver-name = "gps-cdcl"
   solver-version = 1
