@@ -11,18 +11,18 @@ import (
 
 // NewHandler creates a new `http.Handler` to be used to serve the content.
 func NewHandler(client Client, tmpl *template.Template) http.Handler {
-	mux := mux.New()
-	mux.Handler("GET", "/", index(tmpl))
-	mux.Handler("GET", "/rennen.ics", calendar(client, tmpl))
-	mux.Handler("GET", "/rennen", redirect("/"))
-	mux.Handler("GET", "/team", redirect("/"))
-	mux.Handler("GET", "/kontakt", redirect("/"))
-	mux.Handler("GET", "/news", redirect("/"))
+	m := mux.New()
+	m.Get("/", index(tmpl))
+	m.Get("/rennen.ics", calendar(client, tmpl))
+	m.Get("/rennen", redirect("/"))
+	m.Get("/team", redirect("/"))
+	m.Get("/kontakt", redirect("/"))
+	m.Get("/news", redirect("/"))
 
 	h := http.NewServeMux()
 	h.Handle("/css/", http.FileServer(http.Dir("./static/")))
 	h.Handle("/img/", http.FileServer(http.Dir("./static/")))
-	h.Handle("/", mux)
+	h.Handle("/", m)
 
 	return h
 }
