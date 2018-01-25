@@ -9,8 +9,8 @@ import (
 	"github.com/pinub/mux"
 )
 
-// NewHandler creates a new `http.Handler` to be used to serve the content.
-func NewHandler(client Client, tmpl *template.Template) http.Handler {
+// New creates a new `http.Handler` to be used to serve the content.
+func New(client Client, tmpl *template.Template) http.Handler {
 	m := mux.New()
 	m.Get("/", index(tmpl))
 	m.Get("/rennen.ics", calendar(client, tmpl))

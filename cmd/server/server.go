@@ -22,7 +22,7 @@ func main() {
 	defer client.Close() // nolint: errcheck
 
 	tmpl := template.Must(template.ParseGlob("./views/*.tmpl"))
-	handler := brt.NewHandler(client, tmpl)
+	handler := brt.New(client, tmpl)
 	server := &http.Server{
 		Addr:           ":" + os.Getenv("PORT"),
 		Handler:        handler,
