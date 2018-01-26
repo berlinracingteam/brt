@@ -83,7 +83,7 @@ func TestCalendar(t *testing.T) {
 
 		equals(t, 200, rec.Code)
 		equals(t, "text/calendar", rec.Header().Get("Content-Type"))
-		equals(t, true, strings.Contains(rec.Body.String(), "Rund um die Wurst"))
+		equals(t, true, strings.Contains(rec.Body.String(), "SUMMARY:Rund um die Wurst\\, 42km"))
 	})
 }
 
